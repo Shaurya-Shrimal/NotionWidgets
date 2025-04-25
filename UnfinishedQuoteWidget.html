@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quote</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Relief:wght@400;700&display=swap');
+
+        body {
+            background-color: #17212B;
+        }        
+
+        .widget {
+            color: white;
+            padding: 1em;
+            font-size: 2em;
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="widget" id="widget">e</div>
+
+<script>
+quotes=[
+"Education is the most powerful weapon which you can use to change the world. - Nelson mandella",
+"Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi",
+"The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge. - Stephen hawkings",
+"Genius is 1% inspiration and 99% perspiration. Accordingly, a genius is often merely a talented person who has done all of his or her homework.",
+"Climb mountains not so the world can see you, but so you can see the world.",
+"Everybody is a genius, but if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid.",
+"The person you will be in 5 years is based on the books you read and the people you surround yourself with today.",
+"When you talk, you are only repeating what you already know. But if you listen, you may learn something new.",
+"Our greatest glory is not in never failing, but in rising every time we fail.",
+"Be strong because things will get better. It may be stormy now, but it never rains forever.",    
+"Nothing you do now can change the past. But I promise you, everything you do now will determine your future.",
+"Doubt kills more dreams that failure ever will.",
+"How can you move onto the next chapter of your life if you keep rereading the last one?",
+"Most of the things you worry about never even happen.",
+"Insanity is doing the same thing over and over again, but expecting different results.",
+"When life puts you in tough situations, don’t way ‘why me’ say ‘try me’!",
+"The lessons you learn on your journey towards your destination will always be more valuable than the destination itself.",
+"Learn from yesterday. Live for today. Hope for tomorrow.",
+"A life spent making mistakes is not only more honorable, but more useful than a life spent doing nothing.",
+"Too many people overvalue what they are not and undervalue what they are.",
+"Worrying doesn’t take away tomorrow’s troubles. It takes away today’s peace.",
+"Life is a grindstone. Whether it grinds you down or polishes you up is for you alone to decide.",
+"All the water in the sea can’t sink a ship unless it gets inside the ship. Similarly, all the negativity in the world can’t get you down unless you allow it inside you.",
+"Hard work beats talent when talent doesn’t work hard.",
+"Productivity boils down to two steps: identify the essential, then eliminate the rest.",
+"So many of our dreams at first seem impossible, then they seem improbable, and then, when we summon the will, they soon become inevitable.",
+"The distance between dreams and reality is called action.",
+"Successful people are not gifted. They just work hard, then succeed on purpose.",
+"If you really want to do something, you’ll find a way. If you don’t, you’ll find an excuse.",
+"Vision without execution is just hallucination.",
+"Work hard in silence. Let success make the noise.",
+"You may see me struggle but you will never see me quit.",
+"Don’t wish it were easier. Wish you were better.",
+"Every morning you have two choices: continue to sleep with your dreams, or wake up and chase them.",
+"You don’t have to be great to start. But you have to start to be great",
+"It’s never too late to be what you might have been.",
+"If we wait until we’re ready, we’ll be waiting for the rest of our lives.",
+"We generate fears while we do nothing. We overcome these fears by taking action.",
+"Life is short. Live it. Fear is natural. Face it. Memory is powerful. Use it.",
+"Learning, like success, is anything but a linear process",
+"I am in competition with no one. I have no desire to play the game of being better than anyone. I am simply trying to be better than the person I was yesterday.",
+"If you want to be interesting, you have to be interested.",
+"It's supposed to be hard. If it were easy, everyone would do it.",
+"Don’t worry if you’re not where you want to be yet. Great things take time. ",
+"If it's important you'll find a way. If it's not, you'll find an excuse.",
+"Most people overestimate what they can do in one year and underestimate what they can do in ten years.",
+"A goal without a plan is just a wish.",
+"change your 24 hours and you'll change your life",
+"Stop thinking you are not qualified, not fit, or not experienced enough,",
+"Growth takes place when you start doing stuff you are not qualified to do.",
+"Be who you are and say what you feel, because those who mind don't matter, and those who matter don't mind.",
+"Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails. Explore. Dream. Discover.",
+];
+
+const INTERVAL = 86400000;
+const QuoteLength = quotes.length;
+let numbersdone = [];
+let numberslength = numbersdone.length;
+let timeout;
+let RandomNo;
+function SelectQuote() {
+    RandomNo = Math.floor(Math.random() * QuoteLength);
+    numberslength = numbersdone.length;
+    if(numbersdone.includes(RandomNo)) {
+        if (numberslength == QuoteLength) {
+            numbersdone = [];
+            return SelectQuote();
+        } else { return SelectQuote(); }
+    } else {
+        numbersdone.push(RandomNo);
+        document.getElementById('widget').innerHTML = quotes[RandomNo];
+        timeout = setTimeout(SelectQuote, INTERVAL);
+    }
+}
+SelectQuote();
+
+
+</script>
+
+</body>
+</html>
